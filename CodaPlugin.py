@@ -1,27 +1,7 @@
 '''
-Coda Plugin Skeleton
+Manipulate Coda.
 
-A poorly named framework for writing Cocoa plugins for Coda using Python.
-
-Copyright (c) 2009 Ian Beck
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Copyright (c) 2010-2014 Justin Hileman
 '''
 
 import sys
@@ -34,14 +14,14 @@ import objc
 NSObject = objc.lookUpClass('NSObject')
 CodaPlugIn = objc.protocolNamed('CodaPlugIn')
 
-class CodaPluginSkeleton(NSObject, CodaPlugIn):
+class ManipulateCoda(NSObject, CodaPlugIn):
     '''
     Initializes the menu items and is responsible for directing
     actions to the appropriate class
     '''
 
 	# AT A MINIMUM you must change this line:
-    plugin_name = 'Coda Plugin Skeleton'
+    plugin_name = 'Manipulate'
 
     # Change this to disable automatic sorting of menu items:
     sort_menu_items = True
@@ -51,12 +31,14 @@ class CodaPluginSkeleton(NSObject, CodaPlugIn):
         self = super(self.__class__, self).init()
         if self is None: return None
 
+
         defaults = NSUserDefaults.standardUserDefaults()
         # Set up default action set
         defaults.registerDefaults_(NSDictionary.dictionaryWithContentsOfFile_(
             bundle.pathForResource_ofType_('PluginActions', 'plist')
         ))
         ns_actions = defaults.dictionaryForKey_('PluginActions')
+
         actions = dict(
             [str(arg), dict(value)] \
             for arg, value in ns_actions.iteritems()
@@ -147,7 +129,10 @@ class CodaPluginSkeleton(NSObject, CodaPlugIn):
             target = mod.__dict__[actionname].alloc().init()
         else:
             target = mod
-        target.act(self.controller, self.bundle, sender.representedObject().objectForKey_('options'))
+        try:
+            target.act(self.controller, self.bundle, sender.representedObject().objectForKey_('options'))
+        except Exception, e:
+            NSLog('Manipulate Coda error: %s' % str(e))
 
     def register_action(self, controller, action, title):
         if 'action' not in action:

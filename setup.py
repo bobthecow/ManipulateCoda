@@ -10,14 +10,17 @@ import os
 # === CONFIG ===
 
 # You will need to name your plugin something different
-plugin_name = 'Coda Plugin Skeleton'
+plugin_name = 'Manipulate Coda'
 
 # Update this info by hand; defines the required Info.plist elements
 info = dict(
-    CFBundleVersion = '0.1',
-    CFBundleIdentifier = 'com.justinhileman.codaplugin',
-    NSHumanReadableCopyright = '(c) 2009 Ian Beck under the MIT license',
+    CodaAuthorString = 'Justin Hileman',
+    CodaDescriptionString = 'A text manipulation plug-in for Coda.',
+    CFBundleVersion = '3.0.0',
+    CFBundleIdentifier = 'com.justinhileman.ManipulateCoda',
+    NSHumanReadableCopyright = '(c) 2010-2014 Justin Hileman',
     CodaPlugInMinimumAPIVersion = '4',
+    LSMinimumSystemVersion = '1.6',
 )
 
 # === You prob'ly won't need to change anything past this point ===

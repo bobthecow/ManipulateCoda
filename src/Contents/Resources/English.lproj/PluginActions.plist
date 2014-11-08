@@ -4,40 +4,561 @@
 <dict>
 	<key>PluginActions</key>
 	<dict>
-		<key>Hello World</key>
+		<key>Upper Case</key>
 		<dict>
 			<key>action</key>
-			<string>HelloWorld</string>
-			<key>shortcut</key>
-			<string>~^@h</string>
-			<!-- set validateMenuItem to true if your action provides a 'showmenu' validation function -->
-			<key>validateMenuItem</key>
-			<false/>
-			<!-- set requireDocument to false if your action can be executed without an active TextView -->
-			<key>requireDocument</key>
-			<true/>
-			<!-- set requireSelection to true if your action requires text selection -->
-			<key>requireSelection</key>
-			<false/>
+			<string>Capitalize</string>
+			<key>submenu</key>
+			<string>Case</string>
 		</dict>
-		<key>Goodbye Cruel World</key>
+		<key>Lower Case</key>
 		<dict>
 			<key>action</key>
-			<string>HelloWorld</string>
+			<string>Capitalize</string>
 			<key>options</key>
 			<dict>
-				<key>message</key>
-				<string>Goodbye</string>
-				<key>replace</key>
+				<key>to_case</key>
+				<string>lower</string>
+			</dict>
+			<key>submenu</key>
+			<string>Case</string>
+		</dict>
+		<key>Title Case</key>
+		<dict>
+			<key>action</key>
+			<string>Capitalize</string>
+			<key>options</key>
+			<dict>
+				<key>to_case</key>
+				<string>title</string>
+			</dict>
+			<key>submenu</key>
+			<string>Case</string>
+		</dict>
+		<key>Sentence Case</key>
+		<dict>
+			<key>action</key>
+			<string>Capitalize</string>
+			<key>options</key>
+			<dict>
+				<key>to_case</key>
+				<string>sentence</string>
+			</dict>
+			<key>submenu</key>
+			<string>Case</string>
+		</dict>
+		<key>Invert Case</key>
+		<dict>
+			<key>action</key>
+			<string>Capitalize</string>
+			<key>options</key>
+			<dict>
+				<key>to_case</key>
+				<string>invert</string>
+			</dict>
+			<key>submenu</key>
+			<string>Case</string>
+		</dict>
+		<key>Swap With Clipboard</key>
+		<dict>
+			<key>action</key>
+			<string>SwapClipboard</string>
+			<key>shortcut</key>
+			<string>^~x</string>
+			<key>requireSelection</key>
+			<true/>
+			<key>submenu</key>
+			<string>Clipboard</string>
+		</dict>
+		<key>Append To Clipboard</key>
+		<dict>
+			<key>action</key>
+			<string>AppendClipboard</string>
+			<key>shortcut</key>
+			<string>^~c</string>
+			<key>requireSelection</key>
+			<true/>
+			<key>submenu</key>
+			<string>Clipboard</string>
+		</dict>
+		<key>Align Operators</key>
+		<dict>
+			<key>action</key>
+			<string>AlignOperators</string>
+			<key>shortcut</key>
+			<string>~@]</string>
+			<key>submenu</key>
+			<string>Code</string>
+			<key>requireSelection</key>
+			<true/>
+		</dict>
+		<key>Trim Whitespace</key>
+		<dict>
+			<key>action</key>
+			<string>TrimTrailing</string>
+			<key>shortcut</key>
+			<string>~@k</string>
+			<key>submenu</key>
+			<string>Code</string>
+		</dict>
+		<key>Wrap Comment</key>
+		<dict>
+			<key>action</key>
+			<string>WrapComment</string>
+			<key>shortcut</key>
+			<string>~@/</string>
+			<key>submenu</key>
+			<string>Code</string>
+			<key>options</key>
+			<dict>
+				<key>width</key>
+				<integer>80</integer>
+				<key>min_width</key>
+				<integer>36</integer>
+			</dict>
+		</dict>
+		<key>HTML Encode</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLEncode</string>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>HTML Decode</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLEncode</string>
+			<key>options</key>
+			<dict>
+				<key>decode</key>
+				<true/>
+			</dict>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>URL Encode</key>
+		<dict>
+			<key>action</key>
+			<string>URLEncode</string>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>URL Decode</key>
+		<dict>
+			<key>action</key>
+			<string>URLEncode</string>
+			<key>options</key>
+			<dict>
+				<key>decode</key>
+				<true/>
+			</dict>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>Base 64 Encode</key>
+		<dict>
+			<key>action</key>
+			<string>Base64Encode</string>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>Base 64 Decode</key>
+		<dict>
+			<key>action</key>
+			<string>Base64Encode</string>
+			<key>options</key>
+			<dict>
+				<key>decode</key>
+				<true/>
+			</dict>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>ROT13 Encode/Decode</key>
+		<dict>
+			<key>action</key>
+			<string>ROT13Encode</string>
+			<key>submenu</key>
+			<string>Encoding</string>
+		</dict>
+		<key>Adler-32 Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>adler-32</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>CRC Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>crc-32</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>MD5 Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>md5</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>RIPEMD-160</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>rmd160</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>SHA-1 Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>sha-1</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>SHA-256 Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>sha-256</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>SHA-512 Hash</key>
+		<dict>
+			<key>action</key>
+			<string>MakeHash</string>
+			<key>options</key>
+			<dict>
+				<key>type</key>
+				<string>sha-512</string>
+			</dict>
+			<key>submenu</key>
+			<string>Hash</string>
+		</dict>
+		<key>Delete Lines</key>
+		<dict>
+			<key>action</key>
+			<string>LCDeleteLine</string>
+			<key>shortcut</key>
+			<string>^d</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>Move Lines Up</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveLine</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>up</string>
+			</dict>
+			<key>shortcut</key>
+			<string>~</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>Move Lines Down</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveLine</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>down</string>
+			</dict>
+			<key>shortcut</key>
+			<string>~</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+<!--
+		<key>Move Words Left</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveWord</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>left</string>
+			</dict>
+			<key>shortcut</key>
+			<string>^~[</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>Move Words Right</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveWord</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>right</string>
+			</dict>
+			<key>shortcut</key>
+			<string>^~]</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+-->
+		<key>Duplicate Lines Up</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveLine</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>up</string>
+				<key>duplicate</key>
 				<true/>
 			</dict>
 			<key>shortcut</key>
-			<string>~^@$h</string>
- 			<key>submenu</key>
- 			<string>See Also</string>
-			<key>requireSelection</key>
-			<true/>
+			<string>^~</string>
+			<key>submenu</key>
+			<string>Lines</string>
 		</dict>
+		<key>Duplicate Lines Down</key>
+		<dict>
+			<key>action</key>
+			<string>LCMoveLine</string>
+			<key>options</key>
+			<dict>
+				<key>direction</key>
+				<string>down</string>
+				<key>duplicate</key>
+				<true/>
+			</dict>
+			<key>shortcut</key>
+			<string>^~</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>Yank Lines</key>
+		<dict>
+			<key>action</key>
+			<string>LCYankLine</string>
+			<key>shortcut</key>
+			<string>^y</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>Put Lines</key>
+		<dict>
+			<key>action</key>
+			<string>LCPutLine</string>
+			<key>shortcut</key>
+			<string>^p</string>
+			<key>submenu</key>
+			<string>Lines</string>
+		</dict>
+		<key>HTML to Markdown</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>html</string>
+				<key>to</key>
+				<string>markdown</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+		<key>HTML to reStructuredText</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>html</string>
+				<key>to</key>
+				<string>rest</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+		<key>HTML to Textile</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>html</string>
+				<key>to</key>
+				<string>textile</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+
+		<key>Markdown to HTML</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>markdown</string>
+				<key>to</key>
+				<string>html</string>
+			</dict>
+			<key>shortcut</key>
+			<string>@$m</string>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+<!--
+		<key>Markdown to reStructuredText</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>markdown</string>
+				<key>to</key>
+				<string>rest</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+		<key>Markdown to Textile</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>markdown</string>
+				<key>to</key>
+				<string>textile</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+-->
+		<key>reStructuredText to HTML</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>rest</string>
+				<key>to</key>
+				<string>html</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+<!--
+		<key>reStructuredText to Markdown</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>rest</string>
+				<key>to</key>
+				<string>markdown</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+		<key>reStructuredText to Textile</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>rest</string>
+				<key>to</key>
+				<string>textile</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+-->
+		<key>Textile to HTML</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>textile</string>
+				<key>to</key>
+				<string>html</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+<!--
+		<key>Textile to Markdown</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>textile</string>
+				<key>to</key>
+				<string>markdown</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+		<key>Textile to reStructuredText</key>
+		<dict>
+			<key>action</key>
+			<string>HTMLConvert</string>
+			<key>options</key>
+			<dict>
+				<key>from</key>
+				<string>textile</string>
+				<key>to</key>
+				<string>rest</string>
+			</dict>
+			<key>submenu</key>
+			<string>Markup</string>
+		</dict>
+-->
 	</dict>
 </dict>
 </plist>
